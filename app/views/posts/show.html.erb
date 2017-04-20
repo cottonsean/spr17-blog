@@ -11,9 +11,15 @@
 </p>
 
 <p>
+  <strong>Created At:</strong>
+  <%= @post.created_at.strftime('%A, %B %d, %Y') %>
+</p>
+
+<p>
   <strong>Blog entry:</strong>
   <%= @post.blog_entry %>
 </p>
+
 
 <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" %> |
 <%= link_to 'Back', posts_path, class: "btn btn-primary" %>
