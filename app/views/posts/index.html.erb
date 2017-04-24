@@ -20,9 +20,9 @@
           <tr>
         
             <td><%= post.title %></td>
-            <td><%= post.user.username %></td>
+            <td><%= post.user.username %><%= image_tag post.user.avatar.thumb %></td>
             <td><%= post.created_at.strftime('%A, %B %d, %Y')%></td>
-            <td><%= post.blog_entry %></td>
+            <td><%= post.blog_entry.html_safe %></td>
             <td><%= link_to 'Show', post, class: "btn btn-primary" %></td>
             <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary" %></td>
             <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary" %></td>
@@ -33,6 +33,9 @@
       </tbody>
     </table>
    </div>
-<br>
 
-<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
+<br>
+<p><%= paginate @posts %></p>
+<p><%= link_to 'New Post', new_post_path, class: "btn btn-primary" %></p>
+
+
